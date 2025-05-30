@@ -1,0 +1,52 @@
+# Ignore build results
+bin/
+obj/
+out/
+
+# Ignore Rider-specific files
+.idea/
+*.sln.iml
+
+# Ignore user-specific files
+*.user
+*.userosscache
+*.suo
+*.vsp
+*.pdb
+*.dbmdl
+*.dbproj.schemaview
+*.psess
+*.vspx
+*.vspscc
+*.vssscc
+
+# Ignore NuGet packages (restore them instead)
+*.nupkg
+packages/
+*.snupkg
+project.lock.json
+project.fragment.lock.json
+artifacts/
+
+# Ignore Visual Studio cache (if ever used)
+.vs/
+
+# Ignore test results
+TestResults/
+*.coverage
+*.coveragexml
+*.log
+*.trx
+
+# Ignore OS-specific files
+.DS_Store
+Thumbs.db
+
+# Ignore Rider logs or backup files
+*.swp
+*.bak
+*.tmp
+
+# Optional: Ignore environment/config files (if local only)
+*.env
+*.secrets.json

@@ -1,0 +1,6 @@
+@JumboToRoll.API_HostAddress = http://localhost:5181
+
+GET {{JumboToRoll.API_HostAddress}}/weatherforecast/
+Accept: application/json
+
+###
