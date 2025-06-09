@@ -1,3 +1,5 @@
+using JumboToRolls.API.DTOs;
+using JumboToRolls.API.Services;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 
@@ -7,10 +9,23 @@ namespace JumboToRolls.API.Controllers
     [Route("[controller]")]
     public class JumboToRollsController : ControllerBase
     {
-        [HttpGet(Name = "HelloWorld")]
-        public IActionResult Get()
+        private readonly IJumboToRollsCalculator _service;
+
+        public JumboToRollsController(IJumboToRollsCalculator service)
         {
-            return Ok("This is jumbo to roll");
+            _service = service;
+        }
+        
+        [HttpPost(Name = "calculate-from-jumbo")]
+        public IActionResult CalculateFromJumbo([FromBody] JumboCalculationRequest request)
+        {
+            return Ok();
+        }
+
+        [HttpPost(Name = "calculate-from-snapoff")]
+        public IActionResult CalculateFromSnapoff([FromBody] SnapoffCalculationRequest request)
+        {
+            return Ok();
         }
     }
 }
