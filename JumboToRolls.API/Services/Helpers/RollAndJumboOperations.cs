@@ -20,8 +20,18 @@ public static class RollAndJumboOperations
         return Math.PI * (Math.Pow(rollRadius, 2) - Math.Pow(coreRadius, 2));
     }
 
-    public static int NumberOfRoll(int jumboPaperRadius, int rollDiameter, int coreType)
+    public static Dictionary<double, double> NumberOfRoll(int jumboPaperRadius, int rollDiameter, int coreType)
     {
-        return (int)(AreaOfJumboPaper(jumboPaperRadius, CoreAndShellSizeRepository.GetShellSize ) - AreaOfRollPaper(rollDiameter, coreType));
+        Dictionary<double, double> rolls = new Dictionary<double, double>();
+        
+        var areaJumbo = AreaOfJumboPaper(jumboPaperRadius, CoreAndShellSizeRepository.GetShellSize);
+        var areaRoll = AreaOfRollPaper(rollDiameter, coreType);
+        var numberOfRolls = areaJumbo / areaRoll;
+        var totalUsed = (int)numberOfRolls * areaRoll;
+        var waste = areaJumbo - totalUsed;
+        Console.WriteLine($"Number of rolls: {numberOfRolls}, roll Diameter: {rollDiameter}, core Type: {coreType}, area Jumbo {areaJumbo}, Total used {totalUsed}, waste: {waste}");
+
+        rolls[numberOfRolls] = waste;
+        return rolls;
     }
 }

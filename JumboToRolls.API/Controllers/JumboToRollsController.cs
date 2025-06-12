@@ -25,7 +25,8 @@ namespace JumboToRolls.API.Controllers
         [HttpPost(Name = "calculate-from-jumbo")]
         public IActionResult CalculateFromJumbo([FromBody] JumboCalculationRequest request)
         {
-            return Ok();
+            var result = _service.CalculateFromJumbo(request.JumboPaperRadius, request.CoreType);
+            return Ok(result);
         }
         
         // [HttpPost(Name = "calculate-from-snapoff")]

@@ -4,12 +4,14 @@ namespace JumboToRolls.API.Data;
 
 public static class CoreAndShellSizeRepository
 {
-    public static List<CoreDefinition> GetCoreSize()
+    public static CoreDefinition? GetCoreSize(string sizeId)
     {
-        return new List<CoreDefinition>
+        var allSizes = new List<CoreDefinition>
         {
             new CoreDefinition { SizeId = "CA40", Diameter = 100 }
         };
+
+        return allSizes.FirstOrDefault(c => c.SizeId == sizeId);
     }
 
 
