@@ -9,7 +9,7 @@
     }
   },
   "profiles": {
-    "http": {
+    "JumboToRoll.API: http": {
       "commandName": "Project",
       "dotnetRunMessages": true,
       "launchBrowser": true,
@@ -19,7 +19,7 @@
         "ASPNETCORE_ENVIRONMENT": "Development"
       }
     },
-    "https": {
+    "JumboToRoll.API: https": {
       "commandName": "Project",
       "dotnetRunMessages": true,
       "launchBrowser": true,
