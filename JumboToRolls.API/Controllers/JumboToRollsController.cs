@@ -6,7 +6,7 @@ using Microsoft.AspNetCore.Mvc;
 namespace JumboToRolls.API.Controllers
 {
     [ApiController]
-    [Route("[controller]")]
+    [Route("api/[controller]")]
     public class JumboToRollsController : ControllerBase
     {
         private readonly IJumboToRollsCalculator _service;
@@ -16,16 +16,22 @@ namespace JumboToRolls.API.Controllers
             _service = service;
         }
         
+        [HttpGet(Name = "Hello")]
+        public IActionResult Hello()
+        {
+            return Ok("Hello World");
+        }
+        
         [HttpPost(Name = "calculate-from-jumbo")]
         public IActionResult CalculateFromJumbo([FromBody] JumboCalculationRequest request)
         {
             return Ok();
         }
-
-        [HttpPost(Name = "calculate-from-snapoff")]
-        public IActionResult CalculateFromSnapoff([FromBody] SnapoffCalculationRequest request)
-        {
-            return Ok();
-        }
+        
+        // [HttpPost(Name = "calculate-from-snapoff")]
+        // public IActionResult CalculateFromSnapoff([FromBody] SnapoffCalculationRequest request)
+        // {
+        //     return Ok();
+        // }
     }
 }
